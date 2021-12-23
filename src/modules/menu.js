@@ -25,7 +25,6 @@ const menu = () => {
             menuClose()
         } else if (e.target.closest('.popup-menu-nav__item')) {
             e.preventDefault()
-            console.log(e.target);
             menuClose()
             document.querySelector(e.target.hash).scrollIntoView({
                 behavior: 'smooth',
@@ -34,5 +33,4 @@ const menu = () => {
         }
     })
 }
-
 export default menu
