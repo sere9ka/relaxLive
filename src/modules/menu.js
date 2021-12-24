@@ -1,9 +1,8 @@
-'use strict'
 const menu = () => {
     const body = document.querySelector('body')
     const menuPopup = document.querySelector('.popup-menu');
     const dialogPopup = menuPopup.querySelector('.popup-dialog-menu');
-    const footerBtn = body.querySelector('.button-footer a')
+    const footerBtn = document.querySelector('.button-footer a')
 
     const menuOpen = () => {
         dialogPopup.style.transform = 'translate3d(0, 0, 0)'
@@ -21,9 +20,9 @@ const menu = () => {
                 behavior: 'smooth',
                 block: 'start'
             });
-        } else if (e.target.classList.contains('close-menu') || !e.target.closest('.popup-menu-nav__item')) {
+        } else if (e.target.classList.contains('close-menu') || !e.target.closest('.popup-menu-nav')) {
             menuClose()
-        } else if (e.target.closest('.popup-menu-nav__item')) {
+        } else if (e.target.closest('.popup-menu-nav') && !e.target.closest('.fullList')) {
             e.preventDefault()
             menuClose()
             document.querySelector(e.target.hash).scrollIntoView({
