@@ -19,14 +19,37 @@ const modal = () => {
                     popupOpen(popup)
                 }
             })
-            
-        }
+        } else if (e.target.closest('.link-privacy')) {
+            popups.forEach(popup => {
+                if (popup.classList.contains('popup-privacy')) {
+                    popupOpen(popup)
+                }
+            })
+        } else if (e.target.closest('.portfolio-slider__slide-frame')) {
+            popups.forEach(popup => {
+                if (popup.classList.contains('popup-portfolio')) {
+                    popupOpen(popup)
+                }
+            })
+        } else if (e.target.closest('.transparency-item')) {
+            popups.forEach(popup => {
+                if (popup.classList.contains('popup-transparency')) {
+                    popupOpen(popup)
+                }
+            })
+        } else if (e.target.closest('.button_wide')) {
+            popups.forEach(popup => {
+                if (popup.classList.contains('popup-consultation')) {
+                    popupOpen(popup)
+                }
+            })
+        } 
     })
 
-    // закрытие любого popup при нажатии не в диалоговом окне
+    // закрытие любого popup при нажатии на крестик 
     popups.forEach(popup => {
         popup.addEventListener('click', (e) => {
-            if (!e.target.closest('.popup-dialog')) {
+            if (e.target.closest('.close')) {
                 popupClose(popup)
             }
         })
